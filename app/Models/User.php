@@ -54,7 +54,7 @@ class User extends Authenticatable
      * The accessors to append to the model's array form.
      */
     protected $appends = [
-        'profile_photo_url',     // @phpstan-ignore-line
+        'profile_photo_url',
     ];
 
     /**

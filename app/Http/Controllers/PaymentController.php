@@ -3,23 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Soap\Treasurer\Omise\Charge;
-use Soap\Treasurer\Treasurer;
+use Soap\LaravelOmise\Omise\Charge;
+use Soap\LaravelOmise\OmiseConfig;
 
 class PaymentController extends Controller
 {
-    public function __construct(protected Charge $chargeApi, protected Treasurer $treasurer) {}
+    public function __construct(protected Charge $chargeApi, protected OmiseConfig $omiseConfig) {}
 
     public function create()
     {
-        $publicKey = $this->treasurer->getPublicKey();
+        $publicKey = $this->omiseConfig->getPublicKey();
 
         return view('payments.form', compact('publicKey'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'amount' => 'required|numeric',
             'currency' => 'required',
             'omiseToken' => 'string',
@@ -27,8 +27,8 @@ class PaymentController extends Controller
         ]);
 
         $paymentData = [
-            'amount' => $request->amount,
-            'currency' => $request->currency,
+            'amount' => $validated['amount'],
+            'currency' => $validated['currency'],
             'return_uri' => route('payments.complete'),
         ];
 

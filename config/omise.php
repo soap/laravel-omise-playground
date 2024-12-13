@@ -1,9 +1,7 @@
 <?php
 
-declare(strict_types=1);
-
+// config for Soap/LaravelOmise
 return [
-
     'url' => 'https://api.omise.co',
 
     'live_public_key' => env('OMISE_LIVE_PUBLIC_KEY', 'pkey_test_xxx'),

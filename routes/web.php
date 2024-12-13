@@ -15,6 +15,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/payments/create', [App\Http\Controllers\PaymentController::class, 'create'])->name('payments.create');
-    Route::post('/payments', [App\Http\Controllers\PaymentController::class, 'store'])->name('payments.store');
+    Route::get('/checkout', [App\Http\Controllers\PaymentController::class, 'create'])->name('checkout');
+    Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'store'])->name('payment.process');
 });

@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                <form id="checkoutForm" method="POST" action="{{ route('payments.store') }}">
+                <form id="checkoutForm" method="POST" action="{{ route('payment.process') }}">
                     @csrf
                     <input type="hidden" name="omiseToken" id="omiseToken" />
                     <input type="hidden" name="omiseSource" id="omiseSource" />
@@ -18,11 +18,11 @@
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Name</label>
-                                    <input type="text" name="name" id="name" autocomplete="name" class="mt-1 focus">
+                                    <input type="text" name="name" id="name" autocomplete="name" class="mt-1 focus" value="Prasit Gebsaap">
                                 </div>
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="amount" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Amount</label>
-                                    <input type="text" name="amount" id="amount" autocomplete="amount" class="mt-1 focus">
+                                    <input type="text" name="amount" id="amount" autocomplete="amount" class="mt-1 focus" value="150">
                                 </div>
                             </div>
                         </div>
@@ -51,6 +51,7 @@
                 amount: document.getElementById('amount').value * 100,
                 currency: document.getElementById('currency').value,
                 defaultPaymentMethod: 'credit_card',
+                otherPaymentMethods: ['promptpay'],
                 submitFormTarget: '#checkoutForm',
                 frameDescription: "Join Joy Tour",
                 onCreateTokenSuccess: function(token) {
