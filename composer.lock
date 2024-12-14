@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "52568e0543b8157f305b2a948a5ae921",
+    "content-hash": "1d9900d093992e732be6ff969b6bf3ed",
     "packages": [
         {
             "name": "anayarojo/shoppingcart",
@@ -4120,16 +4120,16 @@
         },
         {
             "name": "soap/laravel-omise-webhooks",
-            "version": "v0.0.3",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/soap/laravel-omise-webhooks.git",
-                "reference": "4bd0aa5361138e48d7882c2dd186c7987656eb57"
+                "reference": "8ed1d0f65c700681feb5e3dfe2559aa93fbc3fe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/soap/laravel-omise-webhooks/zipball/4bd0aa5361138e48d7882c2dd186c7987656eb57",
-                "reference": "4bd0aa5361138e48d7882c2dd186c7987656eb57",
+                "url": "https://api.github.com/repos/soap/laravel-omise-webhooks/zipball/8ed1d0f65c700681feb5e3dfe2559aa93fbc3fe4",
+                "reference": "8ed1d0f65c700681feb5e3dfe2559aa93fbc3fe4",
                 "shasum": ""
             },
             "require": {
@@ -4190,7 +4190,7 @@
             ],
             "support": {
                 "issues": "https://github.com/soap/laravel-omise-webhooks/issues",
-                "source": "https://github.com/soap/laravel-omise-webhooks/tree/v0.0.3"
+                "source": "https://github.com/soap/laravel-omise-webhooks/tree/v1.0.0"
             },
             "funding": [
                 {
@@ -4198,7 +4198,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-12-13T16:47:51+00:00"
+            "time": "2024-12-14T14:15:05+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",

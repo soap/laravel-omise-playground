@@ -17,4 +17,5 @@ Route::middleware([
 
     Route::get('/checkout', [App\Http\Controllers\PaymentController::class, 'create'])->name('checkout');
     Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'store'])->name('payment.process');
+    Route::get('/pay/complete/{id}', [App\Http\Controllers\PaymentController::class, 'show'])->name('payment.complete');
 });

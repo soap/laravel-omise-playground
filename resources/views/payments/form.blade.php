@@ -13,6 +13,17 @@
                     <input type="hidden" name="omiseToken" id="omiseToken" />
                     <input type="hidden" name="omiseSource" id="omiseSource" />
                     <input type="hidden" name="currency" id="currency" value="thb" />
+                    @if ($errors->any())
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">Holy smokes!</strong>
+                        <span class="block sm:inline">Something seriously bad happened.</span>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white dark:bg-gray-800 sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
@@ -39,9 +50,10 @@
     @push('scripts')
     <script src="https://cdn.omise.co/omise.js"></script>
     <script>
+        console.log('{{ $publicKey }}');
         OmiseCard.configure({
             publicKey: '{{ $publicKey }}',
-            currency: 'thb',
+            currency: 'THB',
         });
         var button = document.getElementById('checkoutButton');
         var form = document.getElementById('checkoutForm');
@@ -51,10 +63,10 @@
                 amount: document.getElementById('amount').value * 100,
                 currency: document.getElementById('currency').value,
                 defaultPaymentMethod: 'credit_card',
-                otherPaymentMethods: ['promptpay'],
                 submitFormTarget: '#checkoutForm',
                 frameDescription: "Join Joy Tour",
                 onCreateTokenSuccess: function(token) {
+                    console.log(token);
                     if (token.startsWith("tokn_")) {
                         form.omiseToken.value = token;
                     } else {
