@@ -28,12 +28,21 @@
                         <div class="px-4 py-5 bg-white dark:bg-gray-800 sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-3">
-                                    <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Name</label>
-                                    <input type="text" name="name" id="name" autocomplete="name" class="mt-1 focus" value="Prasit Gebsaap">
+                                    <div class="m-2 p-2">
+                                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Name</label>
+                                        <input type="text" name="name" id="name" autocomplete="name" class="mt-1 focus" value="Prasit Gebsaap">
+                                    </div>
+                                    <div class="m-2 p-2">
+                                        <label for="amount" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Amount</label>
+                                        <input type="text" name="amount" id="amount" autocomplete="amount" class="mt-1 focus" value="150">
+                                    </div>
                                 </div>
                                 <div class="col-span-6 sm:col-span-3">
-                                    <label for="amount" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Amount</label>
-                                    <input type="text" name="amount" id="amount" autocomplete="amount" class="mt-1 focus" value="150">
+                                    <label for="payment_method" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Payment Method</label>
+                                    <select name="payment_method" id="payment_method" class="mt-1 focus">
+                                        <option value="credit_card">Credit Card</option>
+                                        <option value="prompt_pay">Prompt Pay</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

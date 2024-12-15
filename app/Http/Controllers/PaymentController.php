@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Soap\LaravelOmise\Omise;
 use Soap\LaravelOmise\Omise\Charge;
 use Soap\LaravelOmise\Omise\Error;
-use Soap\LaravelOmise\OmiseConfig;
 
 class PaymentController extends Controller
 {
-    public function __construct(protected Charge $chargeApi, protected OmiseConfig $omiseConfig) {}
+    public function __construct(protected Charge $chargeApi, protected Omise $omise) {}
 
     public function create()
     {
-        $publicKey = $this->omiseConfig->getPublicKey();
+        $publicKey = $this->omise->getPublicKey();
 
         return view('payments.form', compact('publicKey'));
     }
@@ -49,5 +49,10 @@ class PaymentController extends Controller
     public function show($id)
     {
         return view('payments.complete', ['id' => $id]);
+    }
+
+    protected function charge($paymentData)
+    {
+        return $this->chargeApi->create($paymentData);
     }
 }
