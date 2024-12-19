@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Factories\PaymentProcessorFactory;
 use Illuminate\Http\Request;
 use Soap\LaravelOmise\Omise;
-use Soap\LaravelOmise\Omise\Error;
 
 class PaymentController extends Controller
 {

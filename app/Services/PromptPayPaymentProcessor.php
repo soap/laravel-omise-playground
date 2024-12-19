@@ -45,7 +45,7 @@ class PromptPayPaymentProcessor implements PaymentProcessorInterface
         ];
     }
 
-    public function processPayment(array $paymentData): array 
+    public function processPayment(array $paymentData): array
     {
         return [];
     }

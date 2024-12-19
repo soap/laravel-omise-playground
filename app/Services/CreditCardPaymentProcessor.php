@@ -37,7 +37,7 @@ class CreditCardPaymentProcessor implements PaymentProcessorInterface
     /**
      * Process payment using charge id
      */
-    public function processPayment(array $paymentData): array 
+    public function processPayment(array $paymentData): array
     {
         return [];
     }
@@ -45,7 +45,7 @@ class CreditCardPaymentProcessor implements PaymentProcessorInterface
     /**
      * Refund payment using charge id
      */
-    public function refundPayment(string $chargeId, float $amount): bool 
+    public function refundPayment(string $chargeId, float $amount): bool
     {
         return true;
     }
