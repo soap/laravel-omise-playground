@@ -9,21 +9,22 @@ class CartController extends Controller
     public function cartList()
     {
         $cartItems = \Cart::content();
+
         return view('cart', compact('cartItems'));
     }
 
-
     public function addToCart(Request $request)
     {
+        // @phpstan-ignore-next-line
         \Cart::add([
             'id' => $request->id,
             'name' => $request->name,
             'price' => $request->price,
             'qty' => $request->quantity,
             'weight' => $request->weight,
-            'options' => array(
+            'options' => [
                 'image' => $request->image,
-            )
+            ],
         ]);
         session()->flash('success', 'Product is added to cart Successfully !');
 
@@ -34,7 +35,7 @@ class CartController extends Controller
     {
         $validated = $request->validate([
             'rowId' => 'required',
-            'qty' => 'required|numeric|gt:0'
+            'qty' => 'required|numeric|gt:0',
         ]);
         \Cart::update($validated['rowId'], $validated['qty']);
 

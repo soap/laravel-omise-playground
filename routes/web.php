@@ -3,7 +3,6 @@
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -25,7 +24,9 @@ Route::middleware([
     Route::post('cart/remove', [CartController::class, 'removeCart'])->name('cart.remove');
     Route::post('cart/clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
-    Route::get('/checkout', [App\Http\Controllers\PaymentController::class, 'create'])->name('checkout');
+    Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'handleCheckout'])->name('checkout');
+    Route::post('/paywith', [App\Http\Controllers\PaymentController::class, 'handlePaymentMethod'])->name('payment.method');
+
     Route::post('/pay', [App\Http\Controllers\PaymentController::class, 'store'])->name('payment.process');
     Route::get('/pay/complete/{id}', [App\Http\Controllers\PaymentController::class, 'show'])->name('payment.complete');
 });
